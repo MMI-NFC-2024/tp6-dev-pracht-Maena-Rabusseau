@@ -1,0 +1,73 @@
+---
+import cars from "../../assets/cars.json";
+import PlotFigure from "../../components/PlotFigure.astro";
+import * as Plot from "@observablehq/plot";
+import Layout from "../../layouts/Layout.astro";
+
+
+export async function getStaticPaths() {
+  const brands = [...new Set(cars.map(c => c.brand))];
+  return brands.map((b) => ({ params: { brand: b } }));
+}
+
+const { brand } = Astro.params;
+const brands = [...new Set(cars.map(c => c.brand))];
+const filteredCars = brand ? cars.filter(c => c.brand === brand) : cars;
+
+const plotOptions = {
+  grid: true,
+  marks: [
+    Plot.dot(filteredCars, {
+      x: "power_hp",
+      y: "price_eur",
+      fill: "steelblue",
+      r: 5,
+    }),
+  ],
+  x: { label: "Puissance (hp)" },
+  y: { label: "Prix (€)" },
+  title: brand ? `Puissance vs Prix (${brand})` : "Toutes les voitures",
+};
+---
+
+<Layout/>
+  <h1 class="text-3xl font-bold text-center mb-8">
+    {brand ? `Graphique de la marque : ${brand}` : "Graphique de toutes les marques"}
+  </h1>
+
+  <div class="text-center mb-6">
+    <select
+      id="brandSelect"
+      class="mb-4 p-2 border rounded"
+      value={brand ?? ""}
+    >
+      <option value="">Toutes les marques</option>
+      {brands.map((b) => (
+        <option value={b} selected={b === brand}>{b}</option>
+      ))}
+    </select>
+  </div>
+
+  <div class="flex justify-center mb-6">
+    <PlotFigure options={plotOptions} />
+  </div>
+
+
+
+  <script type="module">
+    const select = document.getElementById('brandSelect');
+    select.addEventListener('change', (e) => {
+      const newBrand = e.target.value;
+      if (newBrand) {
+        window.location.href = `/rendu_statique_voiture/${newBrand}`;
+      } else {
+        window.location.href = '/rendu_statique_voiture/';
+      }
+    });
+  </script>
+  <div class="text-center mt-6">
+    <a href="/rendu_statique_voiture/" class="text-black-500 underline">
+      ← Retour à la liste des marques
+    </a>
+  </div>
+

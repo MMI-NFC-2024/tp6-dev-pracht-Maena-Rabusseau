@@ -1,0 +1,202 @@
+[
+  {
+    "brand": "Toyota",
+    "model": "Corolla",
+    "year": 2022,
+    "power_hp": 139,
+    "fuel_consumption_l100km": 6.2,
+    "price_eur": 25000,
+    "type": "Berline",
+    "fuel_type": "Essence"
+  },
+  {
+    "brand": "Toyota",
+    "model": "Prius",
+    "year": 2023,
+    "power_hp": 122,
+    "fuel_consumption_l100km": 3.9,
+    "price_eur": 32000,
+    "type": "Berline",
+    "fuel_type": "Hybride"
+  },
+  {
+    "brand": "BMW",
+    "model": "320i",
+    "year": 2022,
+    "power_hp": 184,
+    "fuel_consumption_l100km": 7.1,
+    "price_eur": 42000,
+    "type": "Berline",
+    "fuel_type": "Essence"
+  },
+  {
+    "brand": "BMW",
+    "model": "X3",
+    "year": 2023,
+    "power_hp": 248,
+    "fuel_consumption_l100km": 8.5,
+    "price_eur": 55000,
+    "type": "SUV",
+    "fuel_type": "Essence"
+  },
+  {
+    "brand": "Audi",
+    "model": "A4",
+    "year": 2022,
+    "power_hp": 190,
+    "fuel_consumption_l100km": 6.8,
+    "price_eur": 45000,
+    "type": "Berline",
+    "fuel_type": "Essence"
+  },
+  {
+    "brand": "Audi",
+    "model": "e-tron",
+    "year": 2023,
+    "power_hp": 408,
+    "fuel_consumption_l100km": 0,
+    "price_eur": 75000,
+    "type": "SUV",
+    "fuel_type": "Électrique"
+  },
+  {
+    "brand": "Volkswagen",
+    "model": "Golf",
+    "year": 2022,
+    "power_hp": 150,
+    "fuel_consumption_l100km": 6.5,
+    "price_eur": 28000,
+    "type": "Compacte",
+    "fuel_type": "Essence"
+  },
+  {
+    "brand": "Volkswagen",
+    "model": "ID.4",
+    "year": 2023,
+    "power_hp": 204,
+    "fuel_consumption_l100km": 0,
+    "price_eur": 50000,
+    "type": "SUV",
+    "fuel_type": "Électrique"
+  },
+  {
+    "brand": "Mercedes",
+    "model": "C-Class",
+    "year": 2022,
+    "power_hp": 204,
+    "fuel_consumption_l100km": 7.3,
+    "price_eur": 48000,
+    "type": "Berline",
+    "fuel_type": "Essence"
+  },
+  {
+    "brand": "Mercedes",
+    "model": "EQC",
+    "year": 2023,
+    "power_hp": 408,
+    "fuel_consumption_l100km": 0,
+    "price_eur": 70000,
+    "type": "SUV",
+    "fuel_type": "Électrique"
+  },
+  {
+    "brand": "Renault",
+    "model": "Clio",
+    "year": 2022,
+    "power_hp": 100,
+    "fuel_consumption_l100km": 5.8,
+    "price_eur": 18000,
+    "type": "Compacte",
+    "fuel_type": "Essence"
+  },
+  {
+    "brand": "Renault",
+    "model": "Zoe",
+    "year": 2023,
+    "power_hp": 135,
+    "fuel_consumption_l100km": 0,
+    "price_eur": 35000,
+    "type": "Compacte",
+    "fuel_type": "Électrique"
+  },
+  {
+    "brand": "Peugeot",
+    "model": "208",
+    "year": 2022,
+    "power_hp": 130,
+    "fuel_consumption_l100km": 6.1,
+    "price_eur": 22000,
+    "type": "Compacte",
+    "fuel_type": "Essence"
+  },
+  {
+    "brand": "Peugeot",
+    "model": "3008",
+    "year": 2023,
+    "power_hp": 180,
+    "fuel_consumption_l100km": 7.8,
+    "price_eur": 38000,
+    "type": "SUV",
+    "fuel_type": "Essence"
+  },
+  {
+    "brand": "Tesla",
+    "model": "Model 3",
+    "year": 2023,
+    "power_hp": 283,
+    "fuel_consumption_l100km": 0,
+    "price_eur": 55000,
+    "type": "Berline",
+    "fuel_type": "Électrique"
+  },
+  {
+    "brand": "Tesla",
+    "model": "Model Y",
+    "year": 2023,
+    "power_hp": 378,
+    "fuel_consumption_l100km": 0,
+    "price_eur": 65000,
+    "type": "SUV",
+    "fuel_type": "Électrique"
+  },
+  {
+    "brand": "Ford",
+    "model": "Focus",
+    "year": 2022,
+    "power_hp": 125,
+    "fuel_consumption_l100km": 6.3,
+    "price_eur": 25000,
+    "type": "Compacte",
+    "fuel_type": "Essence"
+  },
+  {
+    "brand": "Ford",
+    "model": "Mustang Mach-E",
+    "year": 2023,
+    "power_hp": 269,
+    "fuel_consumption_l100km": 0,
+    "price_eur": 60000,
+    "type": "SUV",
+    "fuel_type": "Électrique"
+  },
+  {
+    "brand": "Hyundai",
+    "model": "i30",
+    "year": 2022,
+    "power_hp": 140,
+    "fuel_consumption_l100km": 6.4,
+    "price_eur": 26000,
+    "type": "Compacte",
+    "fuel_type": "Essence"
+  },
+  {
+    "brand": "Hyundai",
+    "model": "Kona Electric",
+    "year": 2023,
+    "power_hp": 204,
+    "fuel_consumption_l100km": 0,
+    "price_eur": 42000,
+    "type": "SUV",
+    "fuel_type": "Électrique"
+  }
+]

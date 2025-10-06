@@ -1,0 +1,25 @@
+---
+import cars from "../../assets/cars.json";
+import Layout from "../../layouts/Layout.astro";
+
+const brands = [...new Set(cars.map(c => c.brand))];
+---
+
+<Layout/>
+  <h1 class="text-3xl font-bold text-center mb-8">
+    Liste des marques de voitures
+  </h1>
+
+  <ul class="max-w-md mx-auto bg-white rounded-2xl shadow-md p-6 space-y-4">
+    {brands.map((b) => (
+      <li>
+        <a 
+          href={`/rendu_dynamique_voiture/${b}`} 
+          class="block text-lg font-medium text-black-600 hover:underline"
+        >
+          {b}
+        </a>
+      </li>
+    ))}
+  </ul>
+

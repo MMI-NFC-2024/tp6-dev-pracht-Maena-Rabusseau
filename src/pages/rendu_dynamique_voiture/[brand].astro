@@ -1,0 +1,41 @@
+---
+import cars from "../../assets/cars.json";
+import PlotFigure from "../../components/PlotFigure.astro";
+import * as Plot from "@observablehq/plot";
+import Layout from "../../layouts/Layout.astro";
+
+const { brand } = Astro.params;
+
+const filteredCars = brand ? cars.filter(c => c.brand === brand) : cars;
+
+const plotOptions = {
+  grid: true,
+  marks: [
+    Plot.dot(filteredCars, {
+      x: "power_hp",
+      y: "price_eur",
+      fill: "steelblue",
+      r: 5,
+    }),
+  ],
+  x: { label: "Puissance (hp)" },
+  y: { label: "Prix (€)" },
+  title: brand ? `Puissance vs Prix (${brand})` : "Toutes les voitures",
+};
+---
+
+<Layout/>
+  <h1 class="text-3xl font-bold text-center mb-8">
+    {brand ? `Graphique de la marque : ${brand}` : "Graphique de toutes les marques"}
+  </h1>
+
+  <div class="flex justify-center">
+    <PlotFigure options={plotOptions} />
+  </div>
+
+  <div class="text-center mt-6">
+    <a href="/rendu_dynamique_voiture/" class="text-black-500 underline">
+      ← Retour à la liste des marques
+    </a>
+  </div>
+

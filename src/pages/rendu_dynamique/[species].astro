@@ -3,6 +3,7 @@ import penguins from "../../assets/penguins.json";
 export const prerender = false;
  import PlotFigure from "../../components/PlotFigure.astro";
 import * as Plot from "@observablehq/plot";
+import Layout from "../../layouts/Layout.astro";
 const { species } = Astro.params;
 
 const filteredPenguins = penguins.filter((penguin) => penguin.species === species);
@@ -11,7 +12,7 @@ const filteredPenguins = penguins.filter((penguin) => penguin.species === specie
 
 ---
 
-
+<Layout/>
 
     <select name="species" id="species" class="mb-4 p-2 border rounded">
   <option value="">All species</option>
@@ -69,5 +70,13 @@ selectSpecies.addEventListener("change", renderPlot);
 renderPlot();
 
 
+
+
 </script>
 
+
+ <div class="text-center mt-6">
+    <a href="/rendu_dynamique/" class="text-black-500 underline">
+      ← Retour à la liste des espèces
+    </a>
+  </div>
