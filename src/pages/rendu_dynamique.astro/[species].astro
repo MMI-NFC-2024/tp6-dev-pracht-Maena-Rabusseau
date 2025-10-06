@@ -1,0 +1,76 @@
+---
+import penguins from "../../assets/penguins.json";
+export const prerender = false;
+ import PlotFigure from "../../components/PlotFigure.astro";
+import * as Plot from "@observablehq/plot";
+const { species } = Astro.params;
+
+const filteredPenguins = penguins.filter((penguin) => penguin.species === species);
+
+
+
+---
+
+
+ <h1 class="text-xl font-bold mb-4 items-center justify-center my-8 ml-45">Penguin avec filtre </h1>
+
+
+
+    <select name="species" id="species" class="mb-4 p-2 border rounded">
+  <option value="">All species</option>
+  <option value="Adelie">Adelie</option>
+  <option value="Chinstrap">Chinstrap</option>
+  <option value="Gentoo">Gentoo</option>
+</select>
+
+  <div id="myplot" class="flex justify-center items-center"></div>
+
+<script >
+import * as Plot from "@observablehq/plot";
+import penguins from '../../assets/penguins.json';
+
+ const selectSpecies = document.getElementById("species");
+function renderPlot() {
+  const species = selectSpecies.value; 
+
+  const div = document.getElementById("myplot");
+
+
+
+ div.innerHTML = "";
+ const filteredData = species ? penguins.filter(p => p.species === species) : penguins;
+
+
+
+    
+ const chart = Plot.plot({
+    width: 600,
+    height: 400,
+    marks: [
+      Plot.dot(filteredData, {
+        x: "culmen_length_mm",
+        y: "culmen_depth_mm",
+        stroke: "species",
+        fill: "transparent",
+        r: 4
+      })
+    ],
+    x: { grid: true, label: "Culmen Length (mm)" },
+    y: { grid: true, label: "Culmen Depth (mm)" },
+    color: { legend: true }
+  });
+
+
+
+
+    div.appendChild(chart);
+}
+
+
+selectSpecies.addEventListener("change", renderPlot); 
+
+renderPlot();
+
+
+</script>
+

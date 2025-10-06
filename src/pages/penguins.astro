@@ -1,0 +1,59 @@
+---
+import * as Plot from "@observablehq/plot";
+import penguins from "../assets/penguins.json";
+import PlotFigure from "../components/PlotFigure.astro";
+import Layout from "../layouts/Layout.astro";
+
+
+const species = [...new Set(penguins.map(p => p.species))];
+
+
+const plots = species.map((s) => {
+  const filtered = penguins.filter(p => p.species === s);
+
+  const plotList = [
+    {
+      title: `Masse corporelle vs Longueur de nageoire (${s})`,
+      options: {
+        grid: true,
+        marks: [
+          Plot.dot(filtered, {
+            x: "body_mass_g",
+            y: "flipper_length_mm",
+            fill: "steelblue",
+            r: 4,
+          }),
+        ],
+        x: { label: "Masse corporelle (g)" },
+        y: { label: "Longueur de nageoire (mm)" },
+      },
+    },
+  ];
+
+  return { species: s, plots: plotList };
+});
+---
+
+<Layout/>
+  <h1 class="text-3xl font-bold text-center mb-8">
+    Graphiques des pingouins par espèce
+  </h1>
+
+  <!-- SLIDER -->
+  <div class="flex overflow-x-auto gap-8 snap-x snap-mandatory scroll-smooth p-6">
+    {plots.map((plotGroup) => (
+      <section class="flex-none w-full snap-start bg-white rounded-2xl shadow-md p-6 text-center">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800">{plotGroup.species}</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {plotGroup.plots.map((plot, i) => (
+            <div class="bg-gray-50 rounded-xl p-4 shadow-inner">
+              <h3 class="font-medium mb-2 text-gray-700">{plot.title}</h3>
+              <PlotFigure options={plot.options} />
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+

@@ -3,10 +3,18 @@ import PlotFigure from "../components/PlotFigure.astro";
 import Layout from "../layouts/Layout.astro";
 import * as Plot from "@observablehq/plot";
 import penguins from "../assets/penguins.json";
+const species = [...new Set(penguins.map(p => p.species))];
+
+
+const pages = [
+  { name: "Accueil", href: "/" },
+  { name: "Rendu dynamique", href: "/dynamique/index" },
+  { name: "Rendu statique", href: "/statique/index" },
+];
 ---
 
-<Layout>
-  <h1 class="text-2xl">Test Astro et Plot (Observablehq)</h1>
+<Layout/>
+  <h1 class="text-2xl m-15">Test Astro et Plot (Observablehq)</h1>
   <PlotFigure
     options={{
       marks: [
@@ -18,4 +26,8 @@ import penguins from "../assets/penguins.json";
       ],
     }}
   />
-</Layout>
+
+
+ 
+
+

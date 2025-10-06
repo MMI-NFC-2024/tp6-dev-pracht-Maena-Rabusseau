@@ -1,5 +1,12 @@
 ---
 import "../styles/global.css";
+
+const pages  = [
+  { name: "Accueil", href: "/"  },
+  { name: "Pingouins", href: "/penguins"  },
+  { name: "Rendu dynamique", href: "/rendu_dynamique" },
+  { name: "Rendu statique", href: "/statique" },
+];
 ---
 
 <!doctype html>
@@ -15,6 +22,15 @@ import "../styles/global.css";
     <slot />
   </body>
 </html>
+
+<nav style="padding: 1rem; background: #f0f0f0; display: flex; gap: 1rem;">
+  {pages.map(page => (
+    <a href={page.href} style="text-decoration: none; color: #333; font-weight: bold;">
+      {page.name}
+    </a>
+  ))}
+</nav>
+
 
 <style>
   html,
