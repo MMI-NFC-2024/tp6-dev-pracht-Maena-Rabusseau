@@ -12,9 +12,6 @@ const filteredPenguins = penguins.filter((penguin) => penguin.species === specie
 ---
 
 
- <h1 class="text-xl font-bold mb-4 items-center justify-center my-8 ml-45">Penguin avec filtre </h1>
-
-
 
     <select name="species" id="species" class="mb-4 p-2 border rounded">
   <option value="">All species</option>
@@ -29,9 +26,9 @@ const filteredPenguins = penguins.filter((penguin) => penguin.species === specie
 import * as Plot from "@observablehq/plot";
 import penguins from '../../assets/penguins.json';
 
- const selectSpecies = document.getElementById("species");
+ const selectSpecies = document.getElementById("species") as HTMLSelectElement;
 function renderPlot() {
-  const species = selectSpecies.value; 
+  const species = selectSpecies?.value; 
 
   const div = document.getElementById("myplot");
 

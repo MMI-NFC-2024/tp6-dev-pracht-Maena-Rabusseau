@@ -9,14 +9,14 @@ const species = [...new Set(penguins.map(p => p.species))];
 
 
 <Layout/>
-  <h1 class="text-3xl font-bold text-center mb-8">Liste des espèces de pingouins</h1>
+  <h1 class="text-3xl font-bold text-center mb-8">Liste des espèces de pingouins ( dynamique) </h1>
 
   <ul class="max-w-md mx-auto bg-white rounded-2xl shadow-md p-6 space-y-4">
     {species.map((s) => (
       <li>
         <a 
-          href={`/rendu-dynamique/${s}`} 
-          class="block text-lg font-medium text-blue-600 hover:underline"
+          href={`/rendu_dynamique/${s}`} 
+          class="block text-lg font-medium text-black-600 hover:underline"
         >
           {s}
         </a>

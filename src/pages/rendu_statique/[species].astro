@@ -1,0 +1,51 @@
+---
+import * as Plot from "@observablehq/plot";
+import penguins from "../../assets/penguins.json";
+import PlotFigure from "../../components/PlotFigure.astro";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const species = [...new Set(penguins.map(p => p.species))];
+  return species.map((s) => ({
+    params: { species: s }, 
+  }));
+}
+
+
+
+// 2️⃣ Récupérer l'espèce depuis les params
+const { species } = Astro.params;
+
+// 3️⃣ Filtrer les données
+const filteredPenguins = penguins.filter((p) => p.species === species);
+
+// 4️⃣ Définir le graphique
+const options = {
+  width: 600,
+  height: 400,
+  grid: true,
+  marks: [
+    Plot.dot(filteredPenguins, {
+      x: "body_mass_g",
+      y: "flipper_length_mm",
+      fill: "steelblue",
+      r: 4,
+    }),
+  ],
+  x: { label: "Masse corporelle (g)" },
+  y: { label: "Longueur de nageoire (mm)" },
+  title: `Masse vs Nageoire - ${species}`,
+};
+---
+
+<Layout>
+  <h1 class="text-3xl font-bold text-center my-8">Espèce : {species}</h1>
+
+  <div class="flex justify-center items-center">
+    <PlotFigure options={options} />
+  </div>
+
+  <div class="text-center mt-6">
+    <a href={`/rendu-statique/${species}`} class="text-black-500 underline">{species}</a>
+  </div>
+</Layout>
