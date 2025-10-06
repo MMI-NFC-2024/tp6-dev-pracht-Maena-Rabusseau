@@ -13,13 +13,12 @@ export async function getStaticPaths() {
 
 
 
-// 2️⃣ Récupérer l'espèce depuis les params
 const { species } = Astro.params;
 
-// 3️⃣ Filtrer les données
+
 const filteredPenguins = penguins.filter((p) => p.species === species);
 
-// 4️⃣ Définir le graphique
+
 const options = {
   width: 600,
   height: 400,
@@ -38,7 +37,7 @@ const options = {
 };
 ---
 
-<Layout>
+<Layout/>
   <h1 class="text-3xl font-bold text-center my-8">Espèce : {species}</h1>
 
   <div class="flex justify-center items-center">
@@ -46,6 +45,6 @@ const options = {
   </div>
 
   <div class="text-center mt-6">
-    <a href={`/rendu-statique/${species}`} class="text-black-500 underline">{species}</a>
+    <a href={`/rendu_statique/${species}`} class="text-black-500 underline">{species}</a>
   </div>
-</Layout>
+
